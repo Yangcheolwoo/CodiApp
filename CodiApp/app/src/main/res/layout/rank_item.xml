@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/rank"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="50dp" />
+
+    <ImageView
+        android:id="@+id/ruserim"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_toRightOf="@+id/rank"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/ruserid"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/ruserim"
+        android:text="userid"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/rtitle"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/ruserid"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/ruserim"
+        android:text="title"
+        android:textSize="15dp" />
+
+    <CheckBox
+        android:id="@+id/like"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/rtitle"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/ruserim"
+        android:button="@drawable/like"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/rtitle"
+        android:layout_toRightOf="@+id/like"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="15dp" />
+</RelativeLayout>

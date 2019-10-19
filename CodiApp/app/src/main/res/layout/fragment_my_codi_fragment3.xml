@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Fragment.Menu3.MyCodiFragment3">
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/userid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text=" "
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/edit_profile"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로필 수정" />
+
+        <TextView
+            android:id="@+id/bookmark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/img"
+            android:layout_marginTop="20dp"
+            android:layout_toLeftOf="@+id/img"
+            android:gravity="center"
+            android:text="즐겨찾기"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:id="@+id/bookmarkcnt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bookmark"
+            android:layout_toLeftOf="@+id/img"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="24sp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/centline"
+            android:layout_centerInParent="true"
+            android:src="#ffffff"
+            app:civ_border_color="#FF000000"/>
+
+        <TextView
+            android:id="@+id/centline"
+            android:layout_width="1dp"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:text=""/>
+
+
+        <TextView
+            android:id="@+id/writing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/img"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/img"
+            android:gravity="center"
+            android:text="게시글"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/writingcnt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/writing"
+            android:layout_toRightOf="@+id/img"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userid"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="안녕하세요 "
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/intro"
+            android:layout_marginTop="50dp"
+            android:background="@color/colorAccent" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/image_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/line" />
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

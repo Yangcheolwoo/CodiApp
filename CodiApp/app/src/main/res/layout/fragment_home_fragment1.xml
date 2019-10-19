@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dmax_spots_spot"
+            android:gravity="center"
+            android:text="코디가 필요해"
+            android:textColor="@color/WhiteBar"
+            android:textSize="25dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:Card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        Card_view:cardCornerRadius="20dp"
+        Card_view:contentPadding="20dp"
+        tools:context=".Fragment.Menu1.HomeFragment1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/rankdate"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:drawableLeft="@drawable/ic_keyboard_arrow_down_black_24dp"
+                android:text="월간 TOP5"
+                android:textColor="@color/colorAccent"
+                android:textSize="40dp" />
+
+            <FrameLayout
+                android:id="@+id/rank_frame"
+                android:layout_below="@+id/rankdate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </FrameLayout>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
+

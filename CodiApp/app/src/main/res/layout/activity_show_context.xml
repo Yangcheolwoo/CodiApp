@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.Menu4.ShowContext">
+
+
+    <FrameLayout
+        android:id="@+id/frame_frag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/comment_button"/>
+
+    <EditText
+        android:id="@+id/edit_comment"
+        android:layout_width="316dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:hint="댓글을 입력하세요"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/comment_button"
+        android:layout_width="76dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/edit_comment"
+        android:text="댓글달기" />
+
+</RelativeLayout>
