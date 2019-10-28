@@ -2,6 +2,8 @@ package com.example.myapplication.Fragment.Menu4.HttpConnection;
 
 import android.os.AsyncTask;
 
+import com.example.myapplication.ServerUri;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,7 +14,8 @@ import java.net.URL;
 
 public class SendCommentToDB extends AsyncTask<String,Void,Void> {
     String content;
-    private String uri = "http://220.68.233.35:80/Codi/ComentSaveDB.jsp";
+    private String uri = new ServerUri().uri+"ComentSaveDB.jsp";
+
 
     @Override
     protected Void doInBackground(String... strings) {

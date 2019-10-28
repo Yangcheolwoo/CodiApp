@@ -1,6 +1,7 @@
-package com.example.myapplication.Fragment.Menu4.HttpConnection;
+package com.example.myapplication.Entry;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.myapplication.ServerUri;
 
@@ -12,17 +13,17 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class EditBoarddb extends AsyncTask<String, Void, Void> {
-
-    private String uri = new ServerUri().uri+"EditBoardDB.jsp";
-
+public class LogincheckActivity extends AsyncTask<String, Void, String>  {
     String sendMsg, receiveMsg;
+
+    String uri = new ServerUri().uri+"login.jsp";
+
+
     @Override
-    protected Void doInBackground(String... strings) {
-
-
+    protected String doInBackground(String... strings) {
         try {
             String str;
+
             URL url = new URL(uri);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("Accept-Charset", "utf-8");
@@ -30,7 +31,7 @@ public class EditBoarddb extends AsyncTask<String, Void, Void> {
             conn.setRequestMethod("POST");
             OutputStreamWriter osw = new OutputStreamWriter(conn.getOutputStream());
 
-            sendMsg = "boardname=" + strings[0] + "&userid=" + strings[1] + "&imgpath=" + strings[2] + "&boardid=" + strings[3]; // + strings[4] + "&content=" +strings[5] + "&time=" + strings[6];
+            sendMsg = "id=" + strings[0] + "&pw=" + strings[1];
 
             osw.write(sendMsg);
             osw.flush();
@@ -53,6 +54,11 @@ public class EditBoarddb extends AsyncTask<String, Void, Void> {
         } catch (IOException e){
             e.printStackTrace();
         }
-        return null;
+        return receiveMsg;
+    }
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
+        //Log.e("RECVDATA",receiveMsg);
     }
 }

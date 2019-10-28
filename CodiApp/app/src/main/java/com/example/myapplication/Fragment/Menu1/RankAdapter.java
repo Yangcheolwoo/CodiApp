@@ -20,11 +20,13 @@ import com.example.myapplication.Fragment.Menu4.HttpConnection.LikeInfodb;
 import com.example.myapplication.Fragment.Menu4.ShowContext;
 import com.example.myapplication.R;
 import com.example.myapplication.SaveSharedPreference;
+import com.example.myapplication.ServerUri;
 
 import java.util.ArrayList;
 
 public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
-    String uri = "http://220.68.233.35:80/Codi/image/";
+    String uri = new ServerUri().uri+"image/";
+
     private ArrayList<RankData> items = new ArrayList<>();
     int showcontext = 1000;
     String counter;

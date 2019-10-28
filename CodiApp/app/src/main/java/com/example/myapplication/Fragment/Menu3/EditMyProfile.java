@@ -23,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.example.myapplication.Fragment.Menu4.HttpConnection.UserProfileEditToServer;
 import com.example.myapplication.R;
 import com.example.myapplication.SaveSharedPreference;
+import com.example.myapplication.ServerUri;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -30,7 +31,7 @@ public class EditMyProfile extends AppCompatActivity {
     int GALLERY_CODE = 1111; //갤러리 진입시 반환 코드
     String img_path = null; //원본이미지이름
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE};
-
+    String iuri = new ServerUri().uri+"image/";
     Button registerbtn;
     CircleImageView userimg;
     EditText intro;
@@ -50,7 +51,7 @@ public class EditMyProfile extends AppCompatActivity {
         userimg = (CircleImageView)findViewById(R.id.img);
         intro = (EditText) findViewById(R.id.intro);
 
-        Glide.with(this).load("http://220.68.233.35:80/Codi/image/ProFileImage/" + nowuserimg).centerCrop().error(R.mipmap.ic_launcher).into(userimg);
+        Glide.with(this).load(iuri+"ProFileImage/" + nowuserimg).centerCrop().error(R.mipmap.ic_launcher).into(userimg);
         intro.setText(userintro);
 
         userimg.setOnClickListener(new View.OnClickListener() {

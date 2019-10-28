@@ -2,6 +2,8 @@ package com.example.myapplication.Fragment.Menu4.HttpConnection;
 
 import android.os.AsyncTask;
 
+import com.example.myapplication.ServerUri;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,8 +13,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class LikeInfodb extends AsyncTask<String,Void,String> {
-    //String uri="http://coditest.iptime.org:80/Codi/LikeFlag.jsp";
-    private String uri = "http://220.68.233.35:80/Codi/LikeFlag.jsp";
+
+    private String uri = new ServerUri().uri + "LikeFlag.jsp";
+
     String sendMsg, receiveMsg;
     @Override
     protected String doInBackground(String... strings) {

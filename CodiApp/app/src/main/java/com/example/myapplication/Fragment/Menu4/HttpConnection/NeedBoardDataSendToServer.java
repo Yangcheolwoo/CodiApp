@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.myapplication.CustomDialog;
+import com.example.myapplication.ServerUri;
 
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
@@ -26,7 +27,8 @@ public class NeedBoardDataSendToServer extends AsyncTask<String, Void, String> {
     Activity activity;
     CustomDialog customDialog;
 
-    private String uri = "http://220.68.233.35:80/Codi/SaveNeedBoardData.jsp";
+    private String uri = new ServerUri().uri + "SaveNeedBoardData.jsp";
+
 
     public NeedBoardDataSendToServer(Context context,Activity activity){
         this.context = context;

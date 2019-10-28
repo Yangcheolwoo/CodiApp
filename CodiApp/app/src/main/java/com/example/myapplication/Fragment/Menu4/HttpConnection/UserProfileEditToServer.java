@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.myapplication.ServerUri;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
@@ -27,11 +29,8 @@ public class UserProfileEditToServer extends AsyncTask<String,Void,String> {
     Activity activity;
     SpotsDialog dialog;
 
-    //private final String serveruri = "http://54.180.49.246:8080/receiveimage.jsp"; //aws ec2 서버주소
-    //private final String serveruri = "http://192.168.0.5:11000/Codi/imagetest.jsp"; //테스팅 서버주소
-    //private final String uri = "http://coditest.iptime.org:80/Codi/imagetest.jsp";
+    private String uri = new ServerUri().uri + "EditProfile.jsp";
 
-    private String uri = "http://220.68.233.35:80/Codi/EditProfile.jsp";
     public UserProfileEditToServer(Context context,Activity activity){
         this.context = context;
         this.activity = activity;

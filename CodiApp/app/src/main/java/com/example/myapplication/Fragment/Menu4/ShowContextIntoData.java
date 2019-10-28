@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.example.myapplication.Fragment.Menu1.RankDataDecoration;
 import com.example.myapplication.Fragment.Menu4.Adapter.ComentAdapter;
 import com.example.myapplication.R;
+import com.example.myapplication.ServerUri;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class ShowContextIntoData extends Fragment {
     String boardname;
     RankDataDecoration deco;
 
+    private String uri = new ServerUri().uri+"image/";
     RecyclerView recyclerView;
     ComentAdapter adapter = new ComentAdapter();
     ArrayList<ComentData> items;
@@ -76,10 +78,10 @@ public class ShowContextIntoData extends Fragment {
             boardname = bundle.getString("boardname");
 
             String imagepath = bundle.getString("imagepath");
-            Glide.with(this).load("http://220.68.233.35:80/Codi/image/" + boardname + "/" + imagepath).fitCenter().into(ContentImage);
+            Glide.with(this).load(uri + boardname + "/" + imagepath).fitCenter().into(ContentImage);
 
             String userimg = bundle.getString("userimg");
-            Glide.with(this).load("http://220.68.233.35:80/Codi/image/ProFileImage/" + userimg).centerCrop().error(R.mipmap.ic_launcher).into(userImage);
+            Glide.with(this).load(uri+"ProFileImage/" + userimg).centerCrop().error(R.mipmap.ic_launcher).into(userImage);
 
 
 

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
+import com.example.myapplication.ServerUri;
 
 import org.json.JSONObject;
 import org.w3c.dom.Text;
@@ -90,7 +91,9 @@ public class OtherUserHomePage extends AppCompatActivity {
 
     class LoadUserInfo extends AsyncTask<String, Void, String> {
         String sendMsg,reciveMsg;
-        String uri = "http://220.68.233.35:80/Codi/LoadUserInfo.jsp";
+        String uri = new ServerUri().uri+"LoadUserInfo.jsp";
+        String iuri = new ServerUri().uri+"image/";
+
         Context context;
 
         public LoadUserInfo(Context context){
@@ -153,7 +156,7 @@ public class OtherUserHomePage extends AppCompatActivity {
                 intro.setText(userintro);
                 markctn.setText(bookmarkctn);
                 writingctn.setText(boardctn);
-                Glide.with(getApplicationContext()).load("http://220.68.233.35:80/Codi/image/ProFileImage/" + userprofileimage).centerCrop().error(R.mipmap.ic_launcher).into(userimg);
+                Glide.with(getApplicationContext()).load(iuri+"ProFileImage/" + userprofileimage).centerCrop().error(R.mipmap.ic_launcher).into(userimg);
 
             }catch (Exception e){
                 e.printStackTrace();

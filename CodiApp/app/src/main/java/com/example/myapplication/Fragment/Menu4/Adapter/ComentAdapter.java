@@ -12,8 +12,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.Fragment.Menu4.ComentData;
-import com.example.myapplication.MainActivity;
+import com.example.myapplication.Entry.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.ServerUri;
 
 import java.util.ArrayList;
 
@@ -24,7 +25,8 @@ public class ComentAdapter extends RecyclerView.Adapter<ComentAdapter.ViewHolder
     private Activity activity;
     ArrayList<ComentData> items = new ArrayList<>();
     private MainActivity ac;
-    String uri = "http://220.68.233.35:80/Codi/image/";
+    String iuri = new ServerUri().uri+"image/";
+
 
 //    public rw_nc_comment_Adapter(Activity activity){
 //        this.activity = activity;
@@ -56,7 +58,7 @@ public class ComentAdapter extends RecyclerView.Adapter<ComentAdapter.ViewHolder
         viewHolder.id.setText(item.getUserId());
         viewHolder.time.setText(item.getTime());
         viewHolder.comm.setText(item.getComm());
-        Glide.with(viewHolder.itemView.getContext()).load(uri+"ProFileImage/"+item.getUserProFileImage()).placeholder(new ColorDrawable(Color.WHITE)).skipMemoryCache(false).centerCrop().error(R.mipmap.ic_launcher).into(viewHolder.userimg);
+        Glide.with(viewHolder.itemView.getContext()).load(iuri+"ProFileImage/"+item.getUserProFileImage()).placeholder(new ColorDrawable(Color.WHITE)).skipMemoryCache(false).centerCrop().error(R.mipmap.ic_launcher).into(viewHolder.userimg);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{

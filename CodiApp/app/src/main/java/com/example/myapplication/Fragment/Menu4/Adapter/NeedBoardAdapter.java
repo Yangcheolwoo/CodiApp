@@ -22,17 +22,19 @@ import com.example.myapplication.Fragment.Menu4.ItemData;
 import com.example.myapplication.Fragment.Menu4.ShowContext;
 import com.example.myapplication.R;
 import com.example.myapplication.SaveSharedPreference;
+import com.example.myapplication.ServerUri;
 
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class NeedBoardAdapter extends RecyclerView.Adapter<NeedBoardAdapter.ViewHolder>{
-        String uri = "http://220.68.233.35:80/Codi/image/";
-        ArrayList<ItemData> items = new ArrayList<>();
-        String counter;
-        String userid;
-        Context context;
+    String iuri = new ServerUri().uri+"image/";
+
+    ArrayList<ItemData> items = new ArrayList<>();
+    String counter;
+    String userid;
+    Context context;
 
     @NonNull
     @Override
@@ -48,7 +50,7 @@ public class NeedBoardAdapter extends RecyclerView.Adapter<NeedBoardAdapter.View
     public void onBindViewHolder(@NonNull NeedBoardAdapter.ViewHolder viewHolder, final int position) {
         ItemData item = items.get(position);
         //.diskCacheStrategy(DiskCacheStrategy.NONE)
-        Glide.with(viewHolder.itemView.getContext()).load(uri+item.getBoardDB()+"/"+item.getImgPath()).placeholder(new ColorDrawable(Color.WHITE)).skipMemoryCache(false).centerCrop().into(viewHolder.iv);
+        Glide.with(viewHolder.itemView.getContext()).load(iuri+item.getBoardDB()+"/"+item.getImgPath()).placeholder(new ColorDrawable(Color.WHITE)).skipMemoryCache(false).centerCrop().into(viewHolder.iv);
         //Glide.with(viewHolder.itemView.getContext()).load(uri+"ProFileImage/"+item.getUserProFileImage()).placeholder(new ColorDrawable(Color.WHITE)).skipMemoryCache(false).centerCrop().error(R.mipmap.ic_launcher).into(viewHolder.useriv);
         viewHolder.tvTitle.setText(item.getTitle());
         viewHolder.count.setText(item.getLikeCount());

@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import com.example.myapplication.SaveSharedPreference;
+import com.example.myapplication.ServerUri;
 
 import org.json.JSONObject;
 import org.w3c.dom.Text;
@@ -41,6 +42,7 @@ public class MyCodiFragment3 extends Fragment {
     int GALLERY_CODE = 1111; //갤러리 진입시 반환 코드
     private String img_path = null; //원본이미지이름
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    String iuri = new ServerUri().uri+"image/";
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -115,7 +117,7 @@ public class MyCodiFragment3 extends Fragment {
         }else {
             intro.setText(userintro);
         }
-        Glide.with(this).load("http://220.68.233.35:80/Codi/image/ProFileImage/" + userprofileimage).centerCrop().error(R.mipmap.ic_launcher).into(userimg);
+        Glide.with(this).load(iuri+"ProFileImage/" + userprofileimage).centerCrop().error(R.mipmap.ic_launcher).into(userimg);
 
         // Inflate the layout for this fragment
         return view;
@@ -139,7 +141,7 @@ public class MyCodiFragment3 extends Fragment {
 
     class LoadUserInfo extends AsyncTask<String, Void, String>{
         String sendMsg,reciveMsg;
-        String uri = "http://220.68.233.35:80/Codi/LoadUserInfo.jsp";
+        String uri = new ServerUri().uri+"LoadUserInfo.jsp";
         Context context;
 
         public LoadUserInfo(Context context){
@@ -203,7 +205,7 @@ public class MyCodiFragment3 extends Fragment {
                 intro.setText(userintro);
                 markctn.setText(bookmarkctn);
                 writingctn.setText(boardctn);
-                Glide.with(getContext()).load("http://220.68.233.35:80/Codi/image/ProFileImage/" + userprofileimage).centerCrop().error(R.mipmap.ic_launcher).into(userimg);
+                Glide.with(getContext()).load(iuri+"image/ProFileImage/" + userprofileimage).centerCrop().error(R.mipmap.ic_launcher).into(userimg);
 
             }catch (Exception e){
                 e.printStackTrace();

@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,13 +31,15 @@ import com.example.myapplication.Fragment.Menu4.ShowContext;
 
 import com.example.myapplication.R;
 import com.example.myapplication.SaveSharedPreference;
+import com.example.myapplication.ServerUri;
 
 import java.util.ArrayList;
 
 
 @SuppressWarnings("serial")
 public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> {
-    String uri = "http://220.68.233.35:80/Codi/image/";
+    String iuri = new ServerUri().uri+"image/";
+
     ArrayList<ItemData> items = new ArrayList<>();
     String counter;
     private String nowid;
@@ -66,7 +69,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull BoardAdapter.ViewHolder viewHolder, final int position) {
         ItemData item = items.get(position);
         //.diskCacheStrategy(DiskCacheStrategy.NONE)
-        Glide.with(viewHolder.itemView.getContext()).load(uri+item.getBoardDB()+"/"+item.getImgPath()).placeholder(new ColorDrawable(Color.WHITE)).skipMemoryCache(false).centerCrop().into(viewHolder.iv);
+        Glide.with(viewHolder.itemView.getContext()).load(iuri+item.getBoardDB()+"/"+item.getImgPath()).placeholder(new ColorDrawable(Color.WHITE)).skipMemoryCache(false).centerCrop().into(viewHolder.iv);
         //Glide.with(viewHolder.itemView.getContext()).load(uri+"ProFileImage/"+item.getUserProFileImage()).placeholder(new ColorDrawable(Color.WHITE)).skipMemoryCache(false).centerCrop().error(R.mipmap.ic_launcher).into(viewHolder.useriv);
         viewHolder.tvTitle.setText(item.getTitle());
         viewHolder.count.setText(item.getLikeCount());
@@ -117,6 +120,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
 
 
             cbDelete.setOnClickListener(this);
+            iv.setOnClickListener(this);
            // useriv.setOnClickListener(this);
             like.setOnClickListener(this);
             userid.setOnClickListener(this);
@@ -161,14 +165,15 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
                     break;
                 }
                 case R.id.menu:{
-                    Toast.makeText(context,"menu click",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context,"menu click" + items.get(getAdapterPosition()).getId(),Toast.LENGTH_SHORT).show();
                     if(items.get(getAdapterPosition()).getId().equals(nowid)) {
                         Mypopupmenu(getAdapterPosition());
                     } else {
                         Otherpopupmenu(getAdapterPosition());
                     }
+                    break;
                 }
-                default:{
+                case R.id.dailyim:{
                     //Context context = v.getContext();
 
                     Intent it = new Intent(context, ShowContext.class);

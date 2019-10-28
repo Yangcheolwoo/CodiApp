@@ -2,6 +2,8 @@ package com.example.myapplication.Fragment.Menu4.HttpConnection;
 
 import android.os.AsyncTask;
 
+import com.example.myapplication.ServerUri;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,9 +14,9 @@ import java.net.URL;
 
 public class BringSearchUserItemFromServer extends AsyncTask<String, Void,String> {
     String sendMsg, receiveMsg;
-    //private String uri = "http://54.180.49.246:8080/login.jsp"; //아마존
-    //private String uri = "http://coditest.iptime.org:80/Codi/login.jsp";
-    private String uri = "http://220.68.233.35:80/Codi/SearchUserData.jsp";
+
+    private String uri = new ServerUri().uri+"SearchUserData.jsp";
+
 
 
     @Override

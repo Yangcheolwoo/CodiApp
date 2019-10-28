@@ -10,9 +10,9 @@
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:fullBackupOnly="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
@@ -29,12 +29,12 @@
         <activity android:name=".Fragment.Menu4.DailyStyleActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MainmenuActivity"
+            android:name=".Entry.MainmenuActivity"
             android:label="@string/title_activity_mainmenu"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Newperson"
+        <activity android:name=".Entry.Newperson"
             android:screenOrientation="portrait"/>
-        <activity android:name=".MainActivity"
+        <activity android:name=".Entry.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.example.myapplication.Fragment.Menu4.ShowContext;
 import com.example.myapplication.R;
+import com.example.myapplication.ServerUri;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,8 @@ public class CodiImageAdapter extends RecyclerView.Adapter<CodiImageAdapter.View
 
 
     ArrayList<UserData> items = new ArrayList<>();
-    String uri = "http://220.68.233.35:80/Codi/image/";
+    String uri = new ServerUri().uri+"/image/";
+
     Context context;
 
 //    public CodiImageAdapter(Context context){

@@ -20,7 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
+        android:textSize="15dp"
         android:layout_toEndOf="@+id/userimg"
         android:text=""
         android:textStyle="normal|bold" />
@@ -32,6 +33,7 @@
         android:layout_alignRight="@+id/card_view"
         android:layout_marginTop="5dp"
         android:background="@drawable/dmax_spots_spot"
+        android:focusable="false"
         android:src="@drawable/ic_more_vert_black_24dp" />
 
     <androidx.cardview.widget.CardView
@@ -43,6 +45,7 @@
         app:cardElevation="2dp">
 
         <RelativeLayout
+            android:id="@+id/boardview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">

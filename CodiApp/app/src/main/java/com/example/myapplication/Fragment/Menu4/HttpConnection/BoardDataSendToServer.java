@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 
 import com.example.myapplication.CustomDialog;
 import com.example.myapplication.Fragment.Menu4.AddContext;
+import com.example.myapplication.ServerUri;
 
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
@@ -32,10 +33,9 @@ public class BoardDataSendToServer extends AsyncTask<String, Void, String> {
     SpotsDialog dialog;
     Activity activity;
     CustomDialog customDialog;
-    //private final String serveruri = "http://54.180.49.246:8080/receiveimage.jsp"; //aws ec2 서버주소
-    //private final String serveruri = "http://192.168.0.5:11000/Codi/imagetest.jsp"; //테스팅 서버주소
-    //private final String uri = "http://coditest.iptime.org:80/Codi/imagetest.jsp";
-    private String uri = "http://220.68.233.35:80/Codi/SaveBoardData.jsp";
+
+    private String uri = new ServerUri().uri+"SaveBoardData.jsp";
+
     public BoardDataSendToServer(Context context,Activity activity){
         this.context = context;
         this.activity = activity;

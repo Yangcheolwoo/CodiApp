@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.example.myapplication.Fragment.Menu3.OtherUserHomePage;
 import com.example.myapplication.Fragment.Menu4.ItemData;
 import com.example.myapplication.R;
+import com.example.myapplication.ServerUri;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class UserSearchAdapter extends RecyclerView.Adapter<UserSearchAdapter.ViewHolder> {
-    String uri = "http://220.68.233.35:80/Codi/image/";
+    String iuri = new ServerUri().uri+"image/";
+
     private ArrayList<UserSearchItem> items;
     Context context;
 
@@ -40,7 +42,7 @@ public class UserSearchAdapter extends RecyclerView.Adapter<UserSearchAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull UserSearchAdapter.ViewHolder viewHolder, int position) {
         UserSearchItem item = items.get(position);
-        Glide.with(viewHolder.itemView.getContext()).load(uri+"ProFileImage/"+item.getUserImg()).placeholder(new ColorDrawable(Color.WHITE)).skipMemoryCache(false).centerCrop().error(R.mipmap.ic_launcher).into(viewHolder.useriv);
+        Glide.with(viewHolder.itemView.getContext()).load(iuri+"ProFileImage/"+item.getUserImg()).placeholder(new ColorDrawable(Color.WHITE)).skipMemoryCache(false).centerCrop().error(R.mipmap.ic_launcher).into(viewHolder.useriv);
         viewHolder.userid.setText(item.getUserId());
     }
 
