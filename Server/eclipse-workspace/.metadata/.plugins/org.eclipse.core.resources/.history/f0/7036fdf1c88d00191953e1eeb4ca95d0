@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file = "ConnectDB.jsp"  %>
+<%@ page import="java.util.*,java.text.*" %>
+<%@ page import="java.sql.*"  %>
+<%@ page import="java.io.*" %>
+<%@ page import="org.json.simple.JSONArray"%>
+<%@ page import="org.json.*" %>
+
+
+<%
+JSONArray jArray = new JSONArray();
+JSONObject jsonMain = new JSONObject();
+String folderTypePath = "C:/Users/ZestPC/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/Codi/image/";
+String db = request.getParameter("db")==null?"":request.getParameter("db");
+String type = request.getParameter("type")==null?"":request.getParameter("type");
+
+if(db.equals("") && type.equals("")){
+System.out.println("데이터가져오는중");
+out.println("데이터가져오는중");
+}
+else{
+	try{	
+		sql = "SELECT * FROM BOARD WHERE boardname = ? ORDER BY id DESC";
+	    pstmt = conn.prepareStatement(sql);
+	    pstmt.setString(1,db);
+	    rs = pstmt.executeQuery();
+		while(rs.next()){
+			JSONObject jsonObj = new JSONObject();
+			jsonObj.put("id",rs.getString("id"));
+			jsonObj.put("userid",rs.getString("userid"));
+			jsonObj.put("title",rs.getString("title"));
+			jsonObj.put("content",rs.getString("content"));
+			jsonObj.put("time",rs.getString("time"));
+			jsonObj.put("imagepath",rs.getString("imagepath"));
+			jsonObj.put("boardname",rs.getString("boardname"));
+			jsonObj.put("likecount",rs.getString("likecount"));
+			jArray.add(jsonObj);    	
+		}
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		String jsonst = jArray.toJSONString();
+		//System.out.println(jsonst);
+		jsonMain.put("boardData",jArray);
+		out.println(jsonMain);
+		
+		if (pstmt2 != null)try {pstmt2.close();    } catch (SQLException ex) {}
+		if (pstmt != null)try {pstmt.close();} catch (SQLException ex) {}
+		if (conn != null)try {conn.close();    } catch (SQLException ex) {    }
+	}
+}
+
+
+	
+%>

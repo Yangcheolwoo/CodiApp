@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file = "ConnectDB.jsp"  %>
+<%@ page import="java.util.*,java.text.*" %>
+<%@ page import="java.sql.*"  %>
+
+
+
+<%
+List<String> arraylist = new ArrayList<>();
+String db = request.getParameter("db");
+	
+try{	
+	sql = "SELECT * FROM DAILY ORDER BY time DESC";
+    pstmt = conn.prepareStatement(sql);
+    rs = pstmt.executeQuery();
+	while(rs.next()){
+
+		String userid = rs.getString("userid");
+    	String imagepath = rs.getString("imagepath");
+    	String title = rs.getString("title");
+    	String content = rs.getString("content");
+    	String time = rs.getString("time");
+    	String content = userid + "/" + imagepath + "/" + title + "/" + content + "/" + time;
+    	arraylist.add(returns);
+    	
+	}
+	System.out.println(arraylist);
+} catch (Exception e) {
+	e.printStackTrace();
+} finally {
+
+	if (pstmt2 != null)try {pstmt2.close();    } catch (SQLException ex) {}
+	if (pstmt != null)try {pstmt.close();} catch (SQLException ex) {}
+	if (conn != null)try {conn.close();    } catch (SQLException ex) {    }
+}
+String[] array = arraylist.toArray(new String[arraylist.size()]);
+for(int i=0; i<array.length; i++){
+	System.out.println(array[i]);
+	out.println(array[i]+",");
+}
+
+	
+	
+%>

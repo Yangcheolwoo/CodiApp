@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import ="java.sql.*"%>
+
+<%
+//oracle 계정
+String jdbcUrl = "jdbc:oracle:thin:@192.168.0.5:1521:xe";
+String userId = "hunlove789";
+String userPw = "cjfdn1Y";
+
+Connection conn = null;
+PreparedStatement pstmt = null;
+PreparedStatement pstmt2 = null;
+ResultSet rs = null;
+ResultSet rs2 = null;
+
+String sql = "";
+String sql2 = "";
+String rs3 = "";
+String returns = "";
+
+
+try
+{
+ Class.forName("oracle.jdbc.driver.OracleDriver");
+ conn = DriverManager.getConnection(jdbcUrl, userId, userPw);    
+}
+catch(SQLException e){
+ out.println(e);
+}
+
+%>

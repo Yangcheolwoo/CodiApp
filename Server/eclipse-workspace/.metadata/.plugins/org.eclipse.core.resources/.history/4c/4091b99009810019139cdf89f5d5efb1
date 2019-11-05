@@ -1,0 +1,74 @@
+<%@ include file = "ConnectDB.jsp"  %>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@page import="java.util.*" %>
+<%@page import="java.io.*" %>
+<%@page import="java.text.*" %>
+<%@ page pageEncoding="UTF-8"%>
+<%
+//이미지를 저장할 경로 입력.
+String folderTypePath = "C:/Users/ZestPC/eclipse-workspace/Servers/image";
+String name = new String();
+String fileName = new String();
+String realFileName = new String();
+String array[] = new String[5];
+String arraylist[] = new String[5];
+int n = 0;
+int sizeLimit = 10 * 1024 * 1024; // 5메가까지 제한 넘어서면 예외발생
+try {
+    MultipartRequest multi = new MultipartRequest(request, folderTypePath, sizeLimit,"UTF-8",new DefaultFileRenamePolicy());
+   
+    Enumeration params = multi.getParameterNames();
+	if(params.hasMoreElements()){
+		for(int i=0; i<5; i++){
+		array[i] = (String) params.nextElement();
+		arraylist[i] = (multi.getParameter(array[i])).replace(System.getProperty("line.separator"),"");//들어오는문자열 뒤에 \n이 포함되서 들어오므로 이걸 제거해줌
+		}
+	}
+	Enumeration files = multi.getFileNames();
+    //파일 정보가 있다면
+       
+    if (files.hasMoreElements()) {
+    	name = (String) files.nextElement();
+    	fileName = multi.getFilesystemName(name);
+    }
+    
+    for(int i=0; i<5; i++){
+    	System.out.println(arraylist[i]);
+    }
+    System.out.println("이미지를 저장하였습니다. : " + fileName);
+} catch (IOException e) {
+    out.println("안드로이드 부터 이미지를 받아옵니다.");
+}finally{
+	String now = new SimpleDateFormat("yyyyMMddHHmmss").format(new java.util.Date());
+	//int i;
+	//i=fileName.lastIndexOf(".");
+	realFileName = "Codi_" +arraylist[4]+"_"+now + fileName.substring(fileName.lastIndexOf("."),fileName.length());
+	System.out.println(realFileName);
+	File oldFile = new File(folderTypePath+"/" + fileName);
+	File newFile = new File(folderTypePath+"/" + realFileName);
+	if(oldFile.renameTo(newFile)){
+		System.out.println("Sucess");
+	}else{
+		System.out.println("Error");
+	}		
+}
+try {
+    sql = "INSERT INTO "+arraylist[2]+" VALUES(?,?,?,?,?)";
+    pstmt = conn.prepareStatement(sql);
+    pstmt.setString(1, arraylist[4]); //사용자 이름
+    pstmt.setString(2, realFileName); //저장된 이미지이름
+    pstmt.setString(3, arraylist[3]); //제목
+    pstmt.setString(4, arraylist[1]); //내용
+    pstmt.setString(5, arraylist[0]); //시간
+    pstmt.executeUpdate();
+    
+}catch (Exception e) {
+	e.printStackTrace();
+} finally {
+	if (pstmt2 != null)try {pstmt2.close();    } catch (SQLException ex) {}
+   if (pstmt != null)try {pstmt.close();} catch (SQLException ex) {}
+   if (conn != null)try {conn.close();    } catch (SQLException ex) {    }
+}	   
+
+%> 
