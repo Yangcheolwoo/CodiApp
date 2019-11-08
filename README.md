@@ -9,3 +9,9 @@
 ## Main - Join
 <img src="https://user-images.githubusercontent.com/32381811/68455023-abfd8280-023d-11ea-948d-54384bfcabb4.jpg" width="40%">
 
+## Home - Ranking
+<img src="https://user-images.githubusercontent.com/32381811/68455070-c3d50680-023d-11ea-88af-c3af0881ed14.jpg" width="40%">
+
+## Home - BookMark/Scrap & User Search
+<img src="https://user-images.githubusercontent.com/32381811/68455071-c46d9d00-023d-11ea-9ae8-bc4075950ed0.jpg" width="40%">
+
