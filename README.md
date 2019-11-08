@@ -4,7 +4,6 @@
 * Back-End : Eclipse, Apache-Tomcat-8.5.41, Oracle Database 11g EX 11.2.0.2.0 
 * Library : firebase-admin-6.8.1.jar,  gcm-server.jar, cos.jar,  json-simple-1.1.1.jar,  json.jar,  ojdbc6.jar  
 
-##
 ------------------------------------------------------------------------------------------------------------------------------------
 ## Result
 
@@ -29,4 +28,6 @@
 ### Home - User Codi Board
 <img src="https://user-images.githubusercontent.com/32381811/68455084-c9cae780-023d-11ea-9a31-b64e93ed3eb2.jpg" width="40%">
 
-### 
+## Preparing
+* Chatting - Use Firebase
+* UserInfo
