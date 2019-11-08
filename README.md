@@ -29,5 +29,5 @@
 <img src="https://user-images.githubusercontent.com/32381811/68455084-c9cae780-023d-11ea-9a31-b64e93ed3eb2.jpg" width="40%">
 
 ## Preparing
-* Chatting - Use Firebase
+* Chatting - Use Firebase(Token)
 * UserInfo
