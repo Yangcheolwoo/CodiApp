@@ -1,13 +1,13 @@
 ## Requirement
-#### Front-End : Android Studio
-#### Back-End : Eclipse, Apache-Tomcat-8.5.41, Oracle Database 11g EX 11.2.0.2.0
+<li>
+<ul> Front-End : Android Studio
+<ul> Back-End : Eclipse, Apache-Tomcat-8.5.41, Oracle Database 11g EX 11.2.0.2.0
+  </li>  
 
 ------------------------------------------------------------------------------------------------------------------------------------
 ## Result
 
-<li>  Main - Login
-<ul> dasdasd
-  </li>
+### Main - Login
 <img src="https://user-images.githubusercontent.com/32381811/68454732-e9154500-023c-11ea-87e8-d3361ad5d4d1.jpg" width="40%">
 
 ### Main - Join
