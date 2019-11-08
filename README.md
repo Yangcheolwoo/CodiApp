@@ -18,8 +18,8 @@
 ## Home - Mypage
 <img src="https://user-images.githubusercontent.com/32381811/68455079-c8012400-023d-11ea-8294-45da9cc0ae64.jpg" width="40%">
 
-## Board - Recommand Codi
+## Home - Recommand Codi Board
 <img src="https://user-images.githubusercontent.com/32381811/68455080-c899ba80-023d-11ea-8e10-24bd2c229ca2.jpg" width="40%">
 
-## Board - User Codi
+## Home - User Codi Board
 <img src="https://user-images.githubusercontent.com/32381811/68455084-c9cae780-023d-11ea-9a31-b64e93ed3eb2.jpg" width="40%">
