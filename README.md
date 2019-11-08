@@ -1,8 +1,10 @@
-# Native Android-App
+# Requirement
 ### Front-End : Android Studio
 ### Back-End : Eclipse, Apache-Tomcat-8.5.41, Oracle Database 11g EX 11.2.0.2.0
 
 ------------------------------------------------------------------------------------------------------------------------------------
+# Result
+
 ## Main - Login
 <img src="https://user-images.githubusercontent.com/32381811/68454732-e9154500-023c-11ea-87e8-d3361ad5d4d1.jpg" width="40%">
 
@@ -23,3 +25,5 @@
 
 ## Home - User Codi Board
 <img src="https://user-images.githubusercontent.com/32381811/68455084-c9cae780-023d-11ea-9a31-b64e93ed3eb2.jpg" width="40%">
+
+### 
