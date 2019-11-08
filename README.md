@@ -1,7 +1,7 @@
 ## Requirement
 <li>
 <ul> Front-End : Android Studio
-<ul> Back-End : Eclipse, Apache-Tomcat-8.5.41, Oracle Database 11g EX 11.2.0.2.0
+Back-End : Eclipse, Apache-Tomcat-8.5.41, Oracle Database 11g EX 11.2.0.2.0
   </li>  
 
 ------------------------------------------------------------------------------------------------------------------------------------
